@@ -165,6 +165,7 @@ int main() {
           if (strcmp(hid_id, hid_ids[idx]) == 0) {
             fprintf(stdout, "%s (%s) %sconnected...\n", hid_name, hid_id, strcmp(action, "add") != 0 ? "dis" : "");
             ret = set_tablet_mode(uinput_dev, strcmp(action, "add"));
+            break;
           }
         }
       }
