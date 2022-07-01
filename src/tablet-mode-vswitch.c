@@ -27,8 +27,8 @@
 #include <libevdev/libevdev.h>
 #include <libudev.h>
 
-// List of HID_IDs to watch
-const char *hid_ids[] = {
+// List of HID IDs to watch
+const char *watched_hid_ids[] = {
     "0003:0000045E:000009C0", // Microsoft Surface Type Cover
 #ifdef DEBUG
     "0003:00000416:00000123", // Ducky Ducky One2 SF RGB (my USB keyboard, for testing purposes)
@@ -164,8 +164,8 @@ int main() {
 #endif
 
       if (strcmp(action, "add") == 0 || strcmp(action, "remove") == 0) {
-        for (int idx = 0; hid_ids[idx] != NULL; idx++) {
-          if (strcmp(hid_id, hid_ids[idx]) == 0) {
+        for (int idx = 0; watched_hid_ids[idx] != NULL; idx++) {
+          if (strcmp(hid_id, watched_hid_ids[idx]) == 0) {
             fprintf(stdout, "%s (%s) %sconnected...\n", hid_name, hid_id, strcmp(action, "add") != 0 ? "dis" : "");
             ret = set_tablet_mode(uinput_dev, strcmp(action, "add"));
             break;
