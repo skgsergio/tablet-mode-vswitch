@@ -74,6 +74,9 @@ int main() {
   struct udev_monitor *udev_mon = NULL;
   struct sigaction exit_action;
 
+  // Unbuffer stdout
+  setvbuf(stdout, NULL, _IONBF, 0);
+
   // Capture SIG{INT,TERM}
   memset(&exit_action, 0, sizeof(struct sigaction));
   exit_action.sa_flags = SA_RESTART;
