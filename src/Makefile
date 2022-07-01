@@ -12,7 +12,7 @@ BIN = tablet-mode-vswitch
 all: $(BIN)
 
 debug:
-debug: CFLAGS += -DDEBUG
+debug: CFLAGS += -DDEBUG -g
 debug: $(BIN)
 
 .c:
