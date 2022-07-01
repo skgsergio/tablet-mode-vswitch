@@ -45,7 +45,7 @@ sudo systemctl start tablet-mode-vswitch.service
 If you want to check daemon logs just use `journalctl`:
 
 ```shell
-sudo journalctl -f tablet-mode-vswitch
+sudo journalctl -u tablet-mode-vswitch
 ```
 
 ## To DO list
