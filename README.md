@@ -16,6 +16,38 @@ This daemon provides a virtual HID device which has a Tablet Mode switch. This
 switch is toggled to true when a HID device included in the internal list is
 disconnected and to false when it is connected.
 
+## How to Install
+
+### Arch Linux
+
+Install [tablet-mode-vswitch-git](https://aur.archlinux.org/packages/tablet-mode-vswitch-git)
+package from AUR using your AUR helper of choice.
+
+### Others
+
+Clone this repo and run:
+
+```shell
+make
+sudo make install
+```
+
+## Enabling the service
+
+There is a ready to go systemd service unit you just have to enable and start it
+as follows:
+
+```shell
+sudo systemctl enable tablet-mode-vswitch.service
+sudo systemctl start tablet-mode-vswitch.service
+```
+
+If you want to check daemon logs just use `journalctl`:
+
+```shell
+sudo journalctl -f tablet-mode-vswitch
+```
+
 ## To DO list
 
 - Detect whether the HID devices in the list are present or not when the daemon
