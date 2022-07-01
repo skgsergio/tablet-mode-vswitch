@@ -132,7 +132,7 @@ int set_tablet_mode(struct libevdev_uinput *uinput_dev, bool enable) {
 
   ret = libevdev_uinput_write_event(uinput_dev, EV_SW, SW_TABLET_MODE, enable ? 0x01 : 0x00);
   if (ret != 0) {
-    fprintf(stderr, "libevdev_uinput_wri te_event(uinput_dev, EV_SW, SW_TABLET_MODE, %d) = %s (%d)\n",
+    fprintf(stderr, "libevdev_uinput_write_event(uinput_dev, EV_SW, SW_TABLET_MODE, %d) = %s (%d)\n",
             enable ? 0x01 : 0x00, strerror(-ret), ret);
     return ret;
   }
