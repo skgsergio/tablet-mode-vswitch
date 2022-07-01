@@ -1,0 +1,10 @@
+[Unit]
+Description=Tablet Mode Virtual Switch Daemon
+
+[Service]
+ExecStart=/usr/bin/tablet-mode-vswitch
+KillMode=process
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
