@@ -16,7 +16,7 @@ debug: CFLAGS += -DDEBUG
 debug: $(BIN)
 
 .c:
-	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $<
+	$(CC) $(CFLAGS) $< $(LDFLAGS) -o $@
 
 install: all
 	install -m 755 $(BIN) $(BINDIR)
