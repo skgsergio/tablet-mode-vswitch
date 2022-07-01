@@ -5,16 +5,21 @@ LDFLAGS ?=
 CFLAGS += $(shell pkg-config --cflags libevdev libudev)
 LDFLAGS += $(shell pkg-config --libs libevdev libudev)
 
-.PHONY: all debug clean
+BIN = tablet-mode-vswitch
 
-all: tablet-mode-vswitch
+BINDIR = /usr/bin
+
+all: $(BIN)
 
 debug:
 debug: CFLAGS += -DDEBUG
-debug: tablet-mode-vswitch
+debug: $(BIN)
 
-tablet-mode-vswitch.c:
-	$(CC) $(CFLAGS) tablet-mode-vswitch.c $(LDFLAGS) -o tablet-mode-vswitch
+.c:
+	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $<
+
+install: all
+	install -m 755 $(BIN) $(BINDIR)
 
 clean:
-	rm tablet-mode-vswitch
+	rm -f $(BIN)
