@@ -6,5 +6,34 @@ ExecStart=/usr/bin/tablet-mode-vswitch
 KillMode=process
 Restart=always
 
+DynamicUser=true
+
+User=tablet-mode-vswitch
+Group=input
+
+DevicePolicy=closed
+DeviceAllow=/dev/uinput rw
+
+CapabilityBoundingSet=
+
+PrivateTmp=true
+PrivateNetwork=true
+PrivateUsers=true
+
+NoNewPrivileges=true
+
+ProtectProc=noaccess
+ProtectSystem=strict
+ProtectHome=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+
+RestrictAddressFamilies=AF_UNIX AF_NETLINK
+RestrictSUIDSGID=true
+RestrictNamespaces=true
+
+RemoveIPC=true
+
 [Install]
 WantedBy=multi-user.target
