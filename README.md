@@ -3,12 +3,13 @@
 This project provides a daemon that acts as a Tablet Mode virtual switch that
 toggles on HID device connect and disconnect.
 
-It is designed for resolving the issue I face in a Microsoft Surface Pro (2017)
+I made it since I was using `ydotool` which provides a virtual pointer device
+preventing GNOME to toggle tablet mode on my Microsoft Surface Pro (2017)
 aka 5th gen where the device reports itself as a Laptop and the Tablet Mode
-switch is present in the Microsoft Surface Type Cover. This Tablet Mode switch
-only toggles when you fold back the keyboard but if you disconnect it the switch
-disappears and the system stays in laptop mode causing the Desktop Environments
-to disable tablet features as it is a laptop and there is no tablet switch.
+switch is present in the Microsoft Surface Type Cover.
+
+GNOME toggles tablet mode when there are no pointers but `ydotool` provides
+one.
 
 ## How it works
 
@@ -17,13 +18,6 @@ switch is toggled to true when a HID device included in the internal list is
 disconnected and to false when it is connected.
 
 ## How to Install
-
-### Arch Linux
-
-Install [tablet-mode-vswitch-git](https://aur.archlinux.org/packages/tablet-mode-vswitch-git)
-package from AUR using your AUR helper of choice.
-
-### Others
 
 Clone this repo and run:
 
